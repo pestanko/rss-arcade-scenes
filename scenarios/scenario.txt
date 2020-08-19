@@ -1,0 +1,29 @@
+name: start
+desc: You are an explorer that will explore the cave! Would you like to enter?
+option: yes | Yes | enter_the_cave
+option: no | No | exit
+---
+
+name: exit
+desc: Good bye explorer. Have a nice day!
+quit
+---
+
+name: enter_the_cave
+desc: You have to entered the cave. There are 3 possible directions, where would you like to go?
+option: l | Left | you_died
+option: r | right | monster
+option: f | Forward | you_died
+---
+
+name: you_died
+desc: You were killed by a monster.
+quit
+---
+
+name: monster
+desc: You have encountered a monster - would you like to sneak or kill it or go back?
+option: k | Kill | you_died
+option: s | Sneak | you_died
+option: b | Go Back | enter_the_cave
+---
