@@ -1,4 +1,4 @@
-use std::{collections::HashMap, fmt::Display};
+use std::fmt::Display;
 
 use serde::{Serialize, Deserialize};
 
@@ -33,16 +33,16 @@ pub trait Damageable {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Entity {
     health: u32,
-    weapons: Vec<Weapon>,
-    name: String,
-    id: String
+    pub weapons: Vec<Weapon>,
+    pub name: String,
+    pub id: String
 }
 
 impl Display for Entity {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{} (Health: {})", self.name, self.health)?;
-        for weapon in self.weapons.iter() {
-            write!(f, "{}", weapon)?;
+        writeln!(f, "{} (Health: {})\n\nWeapons:", self.name, self.health)?;
+        for (i,weapon) in self.weapons.iter().enumerate() {
+            write!(f, "{}. {}", i + 1, weapon)?;
         }
         writeln!(f)
     }
@@ -80,6 +80,10 @@ impl Entity {
     pub fn name(&self) -> &str {
         &self.name
     }
+
+    pub fn is_alive(&self) -> bool {
+        self.health != 0
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -103,9 +107,9 @@ impl Display for Weapon {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Potion {
-    id: String,
-    name: String,
-    health: i32,
+    pub id: String,
+    pub name: String,
+    pub health: i32,
 }
 
 impl Healable for Potion {
