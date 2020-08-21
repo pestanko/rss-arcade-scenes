@@ -16,17 +16,21 @@ Or just clone the repository and run the `cargo build/run`
 
 ```bash
 git clone https://github.com/pestanko/rss-arcade-scenes.git
+
 cd rss-arcade-scenes
+
 cargo build --release
 ```
 
 ## Usage
 
-TBD
+The application is taking one argument - the file with scenario, where the scenario is composition of the scenes.
 
 ### Example usage:
 
-TBD
+```bash
+cargo run -- scenarios/scenario.txt
+```
 
 ## Scenarios
 
@@ -50,7 +54,9 @@ option: die | Die | die
 option: leave | Leave | exit
 option: kill | Kill the dragon! | kill
 ---
+
 ...
+
 ```
 
 ### Format
@@ -67,4 +73,9 @@ Each scene consists of:
 
 ### Troubleshooting
 
-TBD
+In order to access the logs - you can set the `RUST_LOG` variable to desired log level, for example `debug`.
+
+```bash
+export RUST_LOG=debug
+cargo run -- scenarios/scenario.txt
+```

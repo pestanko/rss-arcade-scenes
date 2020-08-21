@@ -7,3 +7,12 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+dotenv = "0.15.0"
+
+# Logging
+slog = "2.5.2"
+slog-term = "2.6.0"
+slog-async = "2.5.0"
+slog-envlogger = "2.2.0"
+env_logger = "0.7.1"
