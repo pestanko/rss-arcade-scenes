@@ -1,0 +1,128 @@
+{
+    "version": "1.0",
+    "player": {
+        "name": "Hero",
+        "id": "player",
+        "health": 300,
+        "weapons": [
+            { "id": "punch", "name": "Punch","damage": 10 }
+        ]
+    },
+    "monsters": [
+        {
+            "name": "Dragon",
+            "id": "dragon",
+            "health": 6000,
+            "weapons": [
+                { "id": "breath", "name": "Breath", "damage": 100 },
+                { "id": "fire", "name": "Fire", "damage": 1000 },
+                { "id": "tail", "name": "Tail", "damage": 500 }
+            ]
+        },
+        {
+            "id": "spider",
+            "name": "Spider",
+            "health": 100,
+            "weapons": [
+                { "id": "venom", "name": "Venom", "damage": 50},
+                { "id": "web", "name": "Spider's web", "damage": 10}
+            ]
+        },
+        {
+            "id": "spider",
+            "name": "Spider",
+            "health": 100,
+            "weapons": [
+                { "id": "venom", "name": "Venom", "damage": 50},
+                { "id": "web", "name": "Spider's web", "damage": 10}
+            ]
+        },
+        {
+            "id": "god",
+            "name": "God",
+            "health": 10000000,
+            "weapons": [
+                { "id": "strike", "name": "Strike", "damage": 1000000},
+                { "id": "light", "name": "Lightening", "damage": 1000},
+                { "id": "hand", "name": "God's hand", "damage": 100000}
+            ]
+        }
+    ],
+    "weapons": [
+        { "id": "bronze_sword", "name": "Bronze sword", "damage": 50},
+        { "id": "silver_sword", "name": "Silver sword", "damage": 100},
+        { "id": "gold_sword", "name": "Gold sword", "damage": 200},
+        { "id": "handgun", "name": "Hand gun", "damage": 500},
+        { "id": "rifle", "name": "Assault Rifle", "damage": 800},
+        { "id": "excalibur", "name": "Excalibur", "damage": 1500},
+        { "id": "laser", "name": "Laser Gun", "damage": 2000},
+        { "id": "bomb", "name": "Bomb", "damage": 3000},
+        { "id": "gravity", "name": "Gravity gun", "damage": 10000},
+        { "id": "atom", "name": "Atom bomb", "damage": 1000000}
+    ],
+    "potions": [
+        {"id": "small_hp", "name": "Small healing potion", "health": 100},
+        {"id": "medium_hp", "name": "Small healing potion", "health": 500},
+        {"id": "power_hp", "name": "Powerful healing potion", "health": 1000},
+        {"id": "grand_hp", "name": "Grand healing potion", "health": 5000},
+        {"id": "extrem_hp", "name": "Extremly powerful healing potion", "health": 10000},
+        {"id": "tears_hp", "name": "Tears of god healing potion", "health": 1000000},
+        {"id": "holy_grail", "name": "Holly grail", "health": 100000000},
+        {"id": "exlir_of_gods", "name": "Elixir of gods", "health": 10000000}
+    ],
+    "scenes": [
+        {
+            "id": "start",
+            "desc": "Hello explorer, would you like to enter misterious catacombs?",
+            "options": [
+                {"id": "yes", "name": "Yes", "action": "next|enter_cata"},
+                {"id": "no", "name": "No", "action": "next|leave"}
+            ]
+        },
+        {
+            "id": "leave",
+            "desc": "Explorer you are leaving - would you like to leave?",
+            "options": [
+                {"id": "yes", "name": "Yes", "action": "next|exit"},
+                {"id": "no", "name": "No", "action": "prev"}
+            ]
+        },
+        {
+            "id": "exit",
+            "desc": "Good bye explorer!",
+            "options": [],
+            "quit": true
+        },
+        {
+            "id": "enter_cata",
+            "desc": "You have entered catacombs - where would you like to go?",
+            "options": [
+                {"id": "left", "name": "Go left", "action": "next|go_left"},
+                {"id": "right", "name": "Go right", "action": "next|go_right"},
+                {"id": "back", "name": "Go back", "action": "prev"}
+            ]
+        },
+        {
+            "id": "go_left",
+            "desc": "You have discovered strange potion. Would you like to take it?",
+            "options": [
+                {"id": "yes", "name": "Take", "action": "take|small_hp|next_random_room"},
+                {"id": "no", "name": "Leave it be", "action": "next"}
+            ],
+            "next": "next_random_room"
+        },
+        {
+            "id": "go_right",
+            "desc": "You have discovered a monster. Would you like to fight it?",
+            "options": [
+                {"id": "yes", "name": "Kill it!", "action": "fight|spider"},
+                {"id": "no", "name": "Leave it be", "action": "prev"}
+            ]
+        },
+        {
+            "id": "next_random_room",
+            "desc": "Random room",
+            "random": "any"
+        }
+    ]
+}

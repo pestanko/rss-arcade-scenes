@@ -1,3 +1,22 @@
+type: player
+name: hero
+desc: Hero
+health: 300
+weapon: punch | Punch | 2
+---
+type: monster
+name: spider
+desc: Spider
+health: 60
+weapon: venom | Spider's venom | 5
+---
+type: monster
+name: dragon
+desc: Dragon
+health: 6000
+weapon: fire | Fire | 1000
+weapon: tail | Tail | 100
+---
 name: start
 desc: You are an explorer that will explore the cave! Would you like to enter?
 option: yes | Yes | enter_the_cave

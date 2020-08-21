@@ -1,3 +1,3 @@
 pub mod loader;
-mod parser;
 pub mod scenario;
+pub mod entities;

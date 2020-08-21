@@ -48,12 +48,12 @@ fn play(log: &Logger, scenario: &Scenario) {
             Ok(input) => {
                 debug!(log, "User input: "; "input" => &input);
                 match next_scene.get_option(&input) {
-                    Some(opt) => match scenario.get_scene(&opt.go_to) {
+                    Some(opt) => match scenario.get_scene(&opt.action) {
                         Some(scene) => {
                             next_scene = scene;
                         }
                         None => {
-                            eprintln!("Error: No scene with name: {}", &opt.go_to);
+                            eprintln!("Error: No scene with name: {}", &opt.action);
                             break;
                         }
                     },
@@ -76,7 +76,7 @@ fn prompt_scene(scene: &Scene) -> std::io::Result<String> {
     let opt_string = scene
         .options
         .iter()
-        .map(|opt| opt.option.clone())
+        .map(|opt| opt.id.clone())
         .collect::<Vec<String>>()
         .join("/");
     print!("({}) >>> ", opt_string);
